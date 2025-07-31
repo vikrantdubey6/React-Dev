@@ -34,7 +34,8 @@ function App() {
         backgroundImage: `url('https://images.pexels.com/photos/1144263/pexels-photo-1144263.jpeg')`,
       }}>
      <div className="w-full max-w-md mx-auto ">
-        <div className="w-full max-w-md m-auto border border-gray-60 rounded-lg p-5 backdrop-blur-sm bg-white/20">
+        <div className="w-full max-w-md m-auto border border-gray-60 rounded-lg p-5 backdrop-blur-sm bg-white/20" 
+        >
           <form
             onSubmit={(e) => {
               e.preventDefault();
