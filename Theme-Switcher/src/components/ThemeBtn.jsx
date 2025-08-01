@@ -3,22 +3,22 @@ import useTheme from '../contexts/Theme';
 
 export default function ThemeBtn() {
 
-    const { themeMode, LightTheme, darkTheme } = useTheme()
+    const { themeMode, darkTheme , lightTheme} = useTheme()
     const onChangeBtn = (e) => { 
+
     const darkModeStatus = e.currentTarget.checked
     if (darkModeStatus) {
         darkTheme()
     }
     else {
-        LightTheme()
+        lightTheme()
     }
     }
     return (
         <label className="relative inline-flex items-center cursor-pointer">
             <input
-
                 onChange={onChangeBtn}
-                checked={themeMode === 'dark'}
+                checked={themeMode === "dark"}
                 type="checkbox"
                 value=""
                 className="sr-only peer"
