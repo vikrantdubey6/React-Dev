@@ -1,0 +1,6 @@
+MiniBlog/*.env
+MiniBlog/*.env.example
+MiniBlog/*.env.local
+MiniBlog/*.env.staging
+
+MiniBlog/.env
