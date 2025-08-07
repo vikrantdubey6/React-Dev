@@ -1,6 +1,6 @@
 import React, { useId } from 'react';
 
-function Input(
+const Input = React.forwardRef(function Input(
   { 
     label, 
     type = 'text', 
@@ -28,5 +28,5 @@ function Input(
             />
     </div>
   )
-}
+})
 export default Input
