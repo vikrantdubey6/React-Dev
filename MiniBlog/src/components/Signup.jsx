@@ -58,9 +58,26 @@ function Signup() {
 
                         <input 
                         label = "Email"
-                        placeholder= "Enter your email "
-                  
+                        placeholder= "Enter your email"
+                        type='email'
+                        {...register("email",{
+                            required: true,
+                            validate: {
+                                matchPatern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
+                                "Email address must be a valid address",
+                            }
+                        })}
                         />
+                        <Input
+                        label="Password: "
+                        type="password"
+                        placeholder="Enter your password"
+                        {...register("password", {
+                            required: true,})}
+                        />
+                        <Button type="submit" className="w-full">
+                            Create Account
+                        </Button>
                         
                     </div>
                 </form>
