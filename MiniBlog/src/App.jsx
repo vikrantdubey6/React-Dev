@@ -5,6 +5,7 @@ import authService from './appwrite/auth'
 import {login, logout} from "./store/authSlice"
 import { Header,Footer } from './components'
 import {Outlet} from 'react-router-dom'
+// import { Editor } from '@tinymce/tinymce-react';
 
 function App() {
   
@@ -12,7 +13,7 @@ const [loading, setLoading] = useState(true)
 const dispatch = useDispatch()
 
 useEffect(() => {
- authService.getCurrentuser()
+ authService.getCurrentUser()
  .then((userData) => {
   if(userData){
     dispatch(login({userData}))
@@ -22,7 +23,7 @@ useEffect(() => {
   }
 })
  .finally(() => setLoading(false))
-}, [])
+})
 
   return !loading ? (
     <div className='min-h-screen flex flex-wrap content-between bg-gray-500 ' >
@@ -30,7 +31,7 @@ useEffect(() => {
       <div className=' w-full block '>
     <Header/>
     <main>
-    TODO:  <Outlet/>
+    <Outlet/>
     </main>
     <Footer/>
       </div>

@@ -17,7 +17,7 @@ function Signup() {
         try {
             const userData = await authService.createAccount(data)
             if (userData) {
-                const userData = await authService.getCurrentuser()
+                const userData = await authService.getCurrentUser()
                 if (userData) dispatch(login(userData))
                 navigate("/")
             }
@@ -48,7 +48,7 @@ function Signup() {
 
                 <form onSubmit={handleSubmit(create)}>
                     <div className='space-y-5'>
-                        <input 
+                        <Input 
                         label = "full name: "
                         placeholder='Enter your full name'
                         {...register("name", {
@@ -56,7 +56,7 @@ function Signup() {
                         })}
                         />
 
-                        <input 
+                        <Input 
                         label = "Email"
                         placeholder= "Enter your email"
                         type='email'

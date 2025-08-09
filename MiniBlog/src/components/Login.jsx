@@ -18,7 +18,7 @@ function Login() {
             const session = await authService.login(data)
             if (session) {
                 const userData = await authService.
-                    getCurrentuser()
+                    getCurrentUser()
                 if (userData) dispatch(authLogin(userData))
                 navigate('/')
             }
@@ -57,7 +57,7 @@ function Login() {
                     <form onSubmit={handleSubmit(login)} className='mt-8'>
                         <div className='space-y-5'>
 
-                    <input label="Email" 
+                    <Input label="Email" 
                     placeholder='Enter your email'
                     type='email'
                     {...register('email', {
@@ -70,7 +70,7 @@ function Login() {
                     />
                     
 
-                    <input label = 'Password' 
+                    <Input label = 'Password' 
                     placeholder='Enter your password'
                     type='password'
                     {...register("password", {
@@ -79,11 +79,11 @@ function Login() {
                     })}
                     />
 
-                    <button
+                    <Button
                     type='submit'
                     className='w-full'
                     
-                    >SignIn</button>
+                    >Login</Button>
                         </div>
 
 
