@@ -1,5 +1,5 @@
 import conf from '../conf/conf.js';
-import { Client, ID, Databases, Storage, Query } from "appwrite";
+import { Client, ID, Databases, Storage, Query, Permission, Role } from "appwrite";
 
 export class Service{
     client = new Client();
@@ -26,7 +26,11 @@ export class Service{
                     featuredImage,
                     status,
                     userId,
-                }
+                },
+                [
+                Permission.read(Role.any()),
+                Permission.write(Role.user(userId)) // 👈 Public read access
+            ]
             )
         } catch (error) {
             console.log("Appwrite serive :: createPost :: error", error);
@@ -73,10 +77,9 @@ export class Service{
                 conf.appwritedatabaseid,
                 conf.appwritecollectionid,
                 slug
-            
             )
         } catch (error) {
-            console.log("Appwrite serive :: getPost :: error", error);
+            console.log("Appwrite service :: getPost :: error", error);
             return false
         }
     }
@@ -126,6 +129,13 @@ export class Service{
 
     getFilePreview(fileId){
         return this.bucket.getFilePreview(
+            conf.appwritebucketid,
+            fileId
+        )
+    }
+
+    getFileView(fileId){
+        return this.bucket.getFileView(
             conf.appwritebucketid,
             fileId
         )
